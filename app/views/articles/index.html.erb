@@ -1,17 +1,31 @@
-<h1>COUCOU</h1>
- <%= link_to "Create a new article", new_article_path%>
+<nav class="navbar">
+  <div class="container-fluid">
+    <h1>AnonWiki</h1>
+    <div class="">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Create a new article", new_article_path%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<ul>
-  <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article.id) %>
-<br/>
-  <%= link_to "Delete",
-            article_path(article),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @articles.each do |article| %>
+      <article> <h2><%= link_to article.title, article_path(article.id) %></h2>
 
-    <%= link_to "Update",
-            edit_article_path(article.id) %>
-</li>
-  <% end %>
-</ul>
+      <%= link_to "Delete",
+                article_path(article),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+
+        <%= link_to "Update",
+                edit_article_path(article.id) %>
+
+      <% end %></article>
+    </ul>
+  </div>
+</div>
