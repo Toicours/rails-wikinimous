@@ -1,18 +1,17 @@
 <h1>COUCOU</h1>
+ <%= link_to "Create a new article", new_article_path%>
 
 <ul>
   <% @articles.each do |article| %>
   <li><%= link_to article.title, article_path(article.id) %>
-  <%= link_to "Delete #{article.title}",
+<br/>
+  <%= link_to "Delete",
             article_path(article),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+
+    <%= link_to "Update",
+            edit_article_path(article.id) %>
 </li>
   <% end %>
 </ul>
-
-
-  <%# <%= link_to "Delete #{article.title}",
-                  article_path(article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }%>
